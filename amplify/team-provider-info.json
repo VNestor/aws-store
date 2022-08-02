@@ -1,0 +1,31 @@
+{
+  "prod": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-awsstore-prod-223834-authRole",
+      "UnauthRoleArn": "arn:aws:iam::373160153308:role/amplify-awsstore-prod-223834-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::373160153308:role/amplify-awsstore-prod-223834-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-awsstore-prod-223834-deployment",
+      "UnauthRoleName": "amplify-awsstore-prod-223834-unauthRole",
+      "StackName": "amplify-awsstore-prod-223834",
+      "StackId": "arn:aws:cloudformation:us-east-1:373160153308:stack/amplify-awsstore-prod-223834/34801470-120c-11ed-b89d-123a42d618fb",
+      "AmplifyAppId": "d3ljsqtb5ksojn"
+    },
+    "categories": {
+      "auth": {
+        "awsstore4963532f": {},
+        "true": {}
+      },
+      "function": {
+        "processPayment": {
+          "deploymentBucketName": "amplify-awsstore-prod-223834-deployment",
+          "s3Key": "amplify-builds/processPayment-6634614771396b537066-build.zip"
+        },
+        "createOrder": {
+          "deploymentBucketName": "amplify-awsstore-prod-223834-deployment",
+          "s3Key": "amplify-builds/createOrder-6c4d5975675351543768-build.zip"
+        }
+      }
+    }
+  }
+}

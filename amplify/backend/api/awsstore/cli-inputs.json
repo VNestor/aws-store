@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "serviceConfiguration": {
+    "apiName": "awsstore",
+    "serviceName": "AppSync",
+    "gqlSchemaPath": "C:\\Users\\Vic Doom\\Desktop\\git\\aws-store\\amplify\\backend\\api\\awsstore\\schema.graphql",
+    "defaultAuthType": {
+      "mode": "AMAZON_COGNITO_USER_POOLS",
+      "cognitoUserPoolId": "authawsstore4963532f"
+    },
+    "additionalAuthTypes": [
+      {
+        "mode": "API_KEY",
+        "expirationTime": 365,
+        "apiKeyExpirationDate": "2023-08-02T04:15:38.340Z",
+        "keyDescription": "Grant guest users access to books."
+      }
+    ],
+    "conflictResolution": {}
+  }
+}

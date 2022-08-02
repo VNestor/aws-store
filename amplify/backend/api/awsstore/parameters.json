@@ -1,0 +1,11 @@
+{
+  "AppSyncApiName": "awsstore",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authawsstore4963532f",
+      "Outputs.UserPoolId"
+    ]
+  }
+}
