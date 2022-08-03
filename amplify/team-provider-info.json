@@ -19,7 +19,7 @@
       "function": {
         "processPayment": {
           "deploymentBucketName": "amplify-awsstore-prod-223834-deployment",
-          "s3Key": "amplify-builds/processPayment-57792f5a374737787759-build.zip"
+          "s3Key": "amplify-builds/processPayment-463134696979692f7270-build.zip"
         },
         "createOrder": {
           "deploymentBucketName": "amplify-awsstore-prod-223834-deployment",
