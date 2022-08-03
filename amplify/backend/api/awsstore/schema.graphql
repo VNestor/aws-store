@@ -21,6 +21,7 @@ type Book
   orders: [BookOrder] @connection(keyName: "byBook", fields: ["id"])
 }
 
+# Handles many to many relationships
 type BookOrder
   @model(queries: null, subscriptions: null)
   @key(name: "byBook", fields: ["book_id", "order_id"])

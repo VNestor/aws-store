@@ -19,11 +19,11 @@
       "function": {
         "processPayment": {
           "deploymentBucketName": "amplify-awsstore-prod-223834-deployment",
-          "s3Key": "amplify-builds/processPayment-6634614771396b537066-build.zip"
+          "s3Key": "amplify-builds/processPayment-57792f5a374737787759-build.zip"
         },
         "createOrder": {
           "deploymentBucketName": "amplify-awsstore-prod-223834-deployment",
-          "s3Key": "amplify-builds/createOrder-6c4d5975675351543768-build.zip"
+          "s3Key": "amplify-builds/createOrder-4d6d617a626c7546524a-build.zip"
         }
       }
     }

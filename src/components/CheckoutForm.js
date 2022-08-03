@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { BookContext } from "../context/books";
 import { CartContext } from "../context/cart";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
@@ -34,7 +34,7 @@ const CheckoutForm = () => {
   const [error, setError] = useState(null);
   const stripe = useStripe();
   const elements = useElements();
-  const history = useHistory();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (orderDetails.token) {
