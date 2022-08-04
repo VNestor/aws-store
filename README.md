@@ -21,7 +21,7 @@ Built an online bookstore with a React front-end, AWS Amplify back-end, and Srip
 
 ### Architecture Diagram
 
-![Bookstore Architecture Diagram](https://user-images.githubusercontent.com/37969271/182922328-02c1cc45-5bf1-43f1-a5c7-d86cac7a447c.png)
+<img src="https://user-images.githubusercontent.com/37969271/182922328-02c1cc45-5bf1-43f1-a5c7-d86cac7a447c.png" width="700">
 
 - React connects to Amplify Library.
 - Amplify Library 
