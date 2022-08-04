@@ -1,70 +1,60 @@
-# Getting Started with Create React App
+# AWS Bookstore
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Online bookstore built with AWS, React, and Stripe.
 
-## Available Scripts
+## Dependencies
 
-In the project directory, you can run:
+- React 17.0.2
+- aws-amplify 4.3.30
+- @aws-amplify/ui-react 1.2.5
+- react-router-dom 6.3.0
+- stripe 10.0.0
+- uuid 8.3.2
+- react-icons 4.4.0
+- styled-components 5.3.5
 
-### `npm start`
+## Description
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Built an online bookstore with a React front-end, AWS Amplify back-end, and Sripe's API to process payments.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Architecture Diagram
 
-### `npm test`
+![Bookstore Architecture Diagram](https://user-images.githubusercontent.com/37969271/182922328-02c1cc45-5bf1-43f1-a5c7-d86cac7a447c.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- React connects to Amplify Library.
+- Amplify Library 
+  - GraphQL API powered by AWS AppSync
+    - Handles CRUD operations for maintaining books.
+    - Is handled by VTL templates.
+    - Amplify also provides queries, mutations, and front-end resources to connect to the backend.
+  - Amazon Cognito 
+    - Used for multi-auth functionality. 
+    - Amazon Cognito is used alongside IAM to allow guest users to connect to the back-end and view books.
+  - Pipeline Resolver
+    - Handles the payment and checkout process.
+    - First lambda function gets trigerred after a user checks out.
+    - Before a customer is charged, it will acquire user details from Cognito.
+    - After the payment is made and customer is charged using Stripe, the next lambda function takes over and creates the order in DynamoDB.
+- Hosting
+  - S3 Bucket used to host the static site.
+  - S3 Bucket used to host images.
+  
+  
+# Installing
 
-### `npm run build`
+```
+git clone https://github.com/VNestor/aws-store.git
+npm i
+npm start
+```
+  
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Authors
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+[Victor Nestor](https://github.com/VNestor)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Acknowledgments
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [freecodecamp](https://www.freecodecamp.org/news/how-to-make-a-store-in-one-day-aws-react-stripe/)
+- [Manoj Fernando](https://github.com/mjzone)
+    
