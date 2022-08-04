@@ -9,6 +9,8 @@ Online bookstore built with AWS, React, and Stripe.
 - @aws-amplify/ui-react 1.2.5
 - react-router-dom 6.3.0
 - stripe 10.0.0
+- @stripe/react-stripe-js 1.10.0
+- @stripe/stripe-js 1.34.0
 - uuid 8.3.2
 - react-icons 4.4.0
 - styled-components 5.3.5
