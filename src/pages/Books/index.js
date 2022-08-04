@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { BookContext } from "../context/books";
+import { BookContext } from "../../context/books";
+import { BooksSection, BookArticle, BookImageDiv } from "./BooksElements";
 
 const Books = () => {
   const { books } = useContext(BookContext);
@@ -10,18 +11,18 @@ const Books = () => {
   }
 
   return (
-    <section className="books">
+    <BooksSection>
       {books.map(({ image: image, id, title }) => (
-        <article key={id} className="book">
-          <div className="book-image">
+        <BookArticle key={id}>
+          <BookImageDiv>
             <img src={image} alt={title} />
-          </div>
+          </BookImageDiv>
           <Link to={`${id}`} className="btn book-link">
             Details
           </Link>
-        </article>
+        </BookArticle>
       ))}
-    </section>
+    </BooksSection>
   );
 };
 

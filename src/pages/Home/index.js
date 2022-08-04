@@ -1,7 +1,13 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import Hero from "../components/Hero";
-import { BookContext } from "../context/books";
+import Hero from "../../components/Hero";
+import { BookContext } from "../../context/books";
+import {
+  FeaturedHeader,
+  BookArticle,
+  BookImageDiv,
+  BooksSection,
+} from "./HomeElements";
 
 const Home = () => {
   const { featured } = useContext(BookContext);
@@ -13,21 +19,21 @@ const Home = () => {
     <>
       <Hero />
       <section className="featured">
-        <header className="featured-head">
+        <FeaturedHeader>
           <h3>Featured Collection</h3>
-        </header>
-        <div className="books featured-list">
+        </FeaturedHeader>
+        <BooksSection className="featured-list">
           {featured.map(({ id, image, title }) => (
-            <article key={id} className="book featured-book">
-              <div className="book-image">
+            <BookArticle key={id}>
+              <BookImageDiv>
                 <img src={image} alt={title} />
-              </div>
+              </BookImageDiv>
               <Link to={`books/${id}`} className="btn book-link">
                 Details
               </Link>
-            </article>
+            </BookArticle>
           ))}
-        </div>
+        </BooksSection>
       </section>
     </>
   );

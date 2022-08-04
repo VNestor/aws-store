@@ -2,8 +2,16 @@ import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { API, graphqlOperation, Storage } from "aws-amplify";
 import { AmplifyAuthenticator, AmplifySignOut } from "@aws-amplify/ui-react";
-import { createBook } from "../api/mutations";
-import config from "../aws-exports";
+import { createBook } from "../../api/mutations";
+import config from "../../aws-exports";
+import {
+  AdminSection,
+  AdminHeader,
+  FormWrapper,
+  ImgDiv,
+  FormFieldsDiv,
+  SubmitFormDiv,
+} from "./AdminElements";
 
 const {
   aws_user_files_s3_bucket_region: region,
@@ -60,15 +68,15 @@ const Admin = () => {
   };
 
   return (
-    <section className="admin-wrapper">
+    <AdminSection>
       <AmplifyAuthenticator>
         <section>
-          <header className="form-header">
+          <AdminHeader>
             <h3>Add a New Book</h3>
             <AmplifySignOut></AmplifySignOut>
-          </header>
-          <form className="form-wrapper" onSubmit={handleSubmit}>
-            <div className="form-image">
+          </AdminHeader>
+          <FormWrapper onSubmit={handleSubmit}>
+            <ImgDiv>
               {image ? (
                 <img className="image-preview" src={image} alt="" />
               ) : (
@@ -78,8 +86,8 @@ const Admin = () => {
                   onChange={(e) => handleImageUpload(e)}
                 />
               )}
-            </div>
-            <div className="form-fields">
+            </ImgDiv>
+            <FormFieldsDiv>
               <div className="title-form">
                 <p>
                   <label htmlFor="title">Title</label>
@@ -88,7 +96,7 @@ const Admin = () => {
                   <input
                     name="email"
                     type="title"
-                    placeHolder="Type title of the book."
+                    placeHolder="Type the title of the book."
                     onChange={(e) =>
                       setBookDetails({ ...bookDetails, title: e.target.value })
                     }
@@ -162,16 +170,14 @@ const Admin = () => {
                   />
                 </p>
               </div>
-              <div className="submit-form">
-                <button className="btn" type="submit">
-                  Submit
-                </button>
-              </div>
-            </div>
-          </form>
+              <SubmitFormDiv>
+                <button type="submit">Submit</button>
+              </SubmitFormDiv>
+            </FormFieldsDiv>
+          </FormWrapper>
         </section>
       </AmplifyAuthenticator>
-    </section>
+    </AdminSection>
   );
 };
 

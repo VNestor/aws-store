@@ -1,7 +1,15 @@
 import React, { useContext } from "react";
-import { CartContext } from "../context/cart";
+import { CartContext } from "../../context/cart";
 import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
+import { FaRegSadCry } from "react-icons/fa";
+import {
+  CartSection,
+  CartWrapper,
+  CartItem,
+  ButtonSection,
+  CartH2,
+} from "./CartElements";
 
 const Cart = () => {
   const navigate = useNavigate();
@@ -9,17 +17,21 @@ const Cart = () => {
     useContext(CartContext);
 
   if (!cart.length) {
-    return <h3>Empty Cart</h3>;
+    return (
+      <CartH2>
+        Your Cart Is Empty <br /> <FaRegSadCry size={70} />
+      </CartH2>
+    );
   }
 
   return (
-    <section className="cart">
+    <CartSection>
       <header>
-        <h2>My Cart</h2>\
+        <CartH2>My Cart</CartH2>
       </header>
-      <div className="cart-wrapper">
+      <CartWrapper>
         {cart.map(({ id, title, price, image, amount }) => (
-          <article key={id} className="cart-item">
+          <CartItem key={id}>
             <div className="image">
               <img src={image} alt="cart item" />
             </div>
@@ -36,18 +48,18 @@ const Cart = () => {
                 <FiChevronDown />
               </button>
             </div>
-          </article>
+          </CartItem>
         ))}
-      </div>
+      </CartWrapper>
       <div>
         <h3>Total: $ {total}</h3>
       </div>
-      <div>
+      <ButtonSection>
         <button className="btn" onClick={() => navigate("/checkout")}>
           Checkout
         </button>
-      </div>
-    </section>
+      </ButtonSection>
+    </CartSection>
   );
 };
 

@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { BookContext } from "../context/books";
-import { CartContext } from "../context/cart";
+import { BookContext } from "../../context/books";
+import { CartContext } from "../../context/cart";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
+import { FormDiv, StripeSection, SubmitBtn } from "./CheckoutFormElements";
 
 const CARD_ELEMENT_OPTIONS = {
   style: {
@@ -68,7 +69,7 @@ const CheckoutForm = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className="checkout-form">
+      <FormDiv>
         <label htmlFor="checkout-address">Shipping Address</label>
         <input
           id="checkout-address"
@@ -77,21 +78,19 @@ const CheckoutForm = () => {
             setOrderDetails({ ...orderDetails, address: e.target.value })
           }
         />
-        <div className="stripe-section">
+        <StripeSection>
           <label htmlFor="stripe-element"> Credit or Debit Card</label>
           <CardElement
             id="stripe-element"
             options={CARD_ELEMENT_OPTIONS}
             onChange={handleChange}
           />
-        </div>
+        </StripeSection>
         <div className="card-errors" role="alert">
           {error}
         </div>
-      </div>
-      <button type="submit" className="btn">
-        Submit Payment
-      </button>
+      </FormDiv>
+      <SubmitBtn type="submit">Submit Payment</SubmitBtn>
     </form>
   );
 };

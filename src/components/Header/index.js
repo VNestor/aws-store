@@ -1,10 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { HeaderSection, HeaderNav } from "./HeaderElements";
 
 const Header = () => {
   return (
-    <header className="main-head">
-      <nav>
+    <HeaderSection>
+      <HeaderNav>
         <h1 id="logo">Victor&#x27;s Bookstore</h1>
         <ul>
           <li>
@@ -20,8 +21,8 @@ const Header = () => {
             <Link to="/checkout">Checkout</Link>
           </li>
         </ul>
-      </nav>
-    </header>
+      </HeaderNav>
+    </HeaderSection>
   );
 };
 
